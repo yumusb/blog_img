@@ -8,11 +8,17 @@
 
 from PIL import Image 
 import os
+import sys
+path = sys.argv[1]
 def pic_webp(picpath): 
 	imagePath = picpath.split(".")[0] #文件名称 
 	outputPath = imagePath + ".webp" #输出文件名称 
 	im = Image.open(picpath) #读入文件 
 	im.save(outputPath,"WEBP") #保存 
-for (filename) in os.listdir("./"): 
-	if filename.split(".")[1] in ["png","jpeg","jpg"]: 
-		pic_webp(filename)
+# for (filename) in os.listdir("./"): 
+
+for root, dirs, files in os.walk(path):
+    for name in files:
+        filename = os.path.join(root, name)
+        if filename.split(".")[1] in ["png","jpeg","jpg"]: 
+        	pic_webp(filename)
