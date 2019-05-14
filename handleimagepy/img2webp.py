@@ -4,12 +4,16 @@
 # @Date:   2019-04-12
 # @Email:   yumusb@foxmail.com
 # @Last Modified by:   yumusb
-# @Last Modified time: 2019-04-12
+# @Last Modified time: 2019-05-14
 
 from PIL import Image 
 import os
 import sys
-path = sys.argv[1]
+if len(sys.argv) ==2:
+	path = sys.argv[1]
+else:
+	path = os.getcwd()
+
 def pic_webp(picpath): 
 	imagePath = picpath.split(".")[0] #文件名称 
 	outputPath = imagePath + ".webp" #输出文件名称 
