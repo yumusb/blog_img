@@ -4,7 +4,7 @@
 # @Date:   2019-04-12
 # @Email:   yumusb@foxmail.com
 # @Last Modified by:   yumusb
-# @Last Modified time: 2019-07-18
+# @Last Modified time: 2019-08-30
 import tinify
 import sys
 import os
@@ -21,7 +21,10 @@ def compress(filename):
 	else:
 		print("已经压缩过了")
 		os.remove(tmp)
-path=sys.argv[1]
+if len(sys.argv) ==2:
+	path = sys.argv[1]
+else:
+	path = os.getcwd()
 for root, dirs, files in os.walk(path):
     for name in files:
         filename = os.path.join(root, name)
